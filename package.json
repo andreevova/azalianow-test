@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
+		"start": "next start -p 3001",
 		"lint": "next lint",
 		"prod-deploy": "yarn build && pm2 start ecosystem.config.js --only azalianow-prod",
 		"pm2-prod-deploy": "pm2 deploy ecosystem.config.js production"
