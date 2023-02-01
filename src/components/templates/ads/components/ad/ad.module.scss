@@ -75,7 +75,7 @@
 
 		span {
 			position: relative;
-			margin: 0 12px;
+			margin: 0 14px;
 
 			b {
 				position: relative;
@@ -89,10 +89,10 @@
 				position: absolute;
 				top: -2.5px;
 				bottom: -2.5px;
-				left: -8px;
-				right: -8px;
+				left: -17px;
+				right: -17px;
 				background-color: var(--color-yellow);
-				transform: skew(-25deg);
+				clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 			}
 		}
 	}
