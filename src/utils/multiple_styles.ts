@@ -1,3 +1,3 @@
-export const multipleStyles = (styles: (string | undefined)[]) => {
-	return styles.filter(i => i !== undefined).join(' ')
+export const multipleStyles = (styles: (string | undefined | boolean)[]) => {
+	return styles.filter(i => !['undefined', 'boolean'].includes(typeof i)).join(' ')
 }

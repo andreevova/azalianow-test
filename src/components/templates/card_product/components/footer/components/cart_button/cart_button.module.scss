@@ -1,0 +1,43 @@
+.container {
+	position: relative;
+}
+
+.button {
+	cursor: pointer;
+	position: relative;
+	width: 50%;
+	height: 40px;
+	border: none;
+	box-shadow: none;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	border-radius: 20px;
+	color: var(--color-white);
+	background-color: var(--color-accent);
+	transition: background-color 0.3s ease, width 0.3s ease;
+	z-index: 1;
+
+	&-active {
+		width: 100%;
+		background-color: var(--color-green);
+	}
+}
+
+.counter_wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	border-radius: 20px;
+	background-color: var(--color-gray-light);
+}
+
+.counter {
+	width: 50%;
+	padding: 0 10px;
+}

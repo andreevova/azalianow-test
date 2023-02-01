@@ -1,10 +1,27 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import { observer } from 'mobx-react-lite'
-import { Main } from '@/components/layouts'
-import { AdsTmp } from '@/components/templates'
 import { data } from '@/data'
+import { api } from '@/api'
+import { ProductData } from '@/api/interfaces'
+import { store } from '@/store'
+import { Main } from '@/components/layouts'
+import { AdsTmp, CardProductTmp } from '@/components/templates'
+import styles from '@/styles/home.module.scss'
 
-const Home = () => {
+interface HomeProps {
+	productsData: ProductData[]
+}
+
+const Home: React.FC<HomeProps> = props => {
+	const products = store.products.data
+
+	useEffect(() => {
+		store.cart.resolve()
+		store.favorite.resolve()
+		store.products.set(props.productsData)
+	}, [])
+
 	return (
 		<>
 			<Head>
@@ -15,10 +32,28 @@ const Home = () => {
 			</Head>
 
 			<Main>
-				<AdsTmp title="Всё для комфортной работы" data={data.ads} />
+				<AdsTmp title="Всё для комфортной работы" data={data.ads} className={styles.ads} />
+
+				{products?.map(item => (
+					<CardProductTmp data={item} key={item.id} />
+				))}
 			</Main>
 		</>
 	)
 }
 
 export default observer(Home)
+
+export const getServerSideProps = async () => {
+	try {
+		const productsData = await api.products.list()
+
+		return {
+			props: {
+				productsData,
+			},
+		}
+	} catch (err) {
+		return { props: {} }
+	}
+}

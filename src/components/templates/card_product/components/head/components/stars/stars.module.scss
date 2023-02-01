@@ -1,0 +1,36 @@
+.container {
+	position: relative;
+}
+
+.stars {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+}
+
+.star {
+	min-width: 14px;
+	margin-right: 4px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.stars_fill {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	z-index: 1;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+}

@@ -1,0 +1,36 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	@media screen and (max-width: 560px) {
+		flex-direction: column;
+	}
+}
+
+.category {
+	font-size: 12px;
+	line-height: 20px;
+	color: var(--color-gray-normal);
+	margin-right: auto;
+
+	@media screen and (max-width: 560px) {
+		margin-left: auto;
+	}
+}
+
+.reviews {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	&__count {
+		font-size: 12px;
+		line-height: 20px;
+		color: var(--color-gray-normal);
+		margin-left: 5px;
+		text-decoration: underline;
+	}
+}

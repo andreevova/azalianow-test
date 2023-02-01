@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import { observer } from 'mobx-react-lite'
+import Image from 'next/image'
 import { multipleStyles } from '@/utils'
 import type { AdRef, AdProps } from './types'
 import styles from './ad.module.scss'
@@ -10,7 +11,7 @@ const AdBase = forwardRef<AdRef, AdProps>((props, ref) => {
 	return (
 		<div className={multipleStyles([styles.container, className])} {...rest} ref={ref}>
 			<div className={styles.preview}>
-				<img className={styles.preview__img} src={`/ads/${data.preview}`} />
+				<Image src={`/ads/${data.preview}`} width={140} height={140} alt="" className={styles.preview__img} />
 			</div>
 
 			<div className={styles.info}>

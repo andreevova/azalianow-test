@@ -1,0 +1,41 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	> * {
+		flex: 1;
+	}
+}
+
+.value {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: center;
+}
+
+.button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+
+	svg {
+		width: 10px;
+		height: 10px;
+		fill: var(--color-black);
+		opacity: 0.3;
+		transition: opacity 0.3s ease, fill 0.3s ease;
+	}
+
+	&:hover {
+		svg {
+			opacity: 1;
+			fill: var(--color-accent);
+		}
+	}
+}
